@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.interactivedemos.interactivedemo1.MainController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <HBox spacing="10">
+        <TextField fx:id="decimalInput" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="convertButton" text="Convert" onAction="#onConvertButtonClick" disable="true"/>
+    </HBox>
+    <TableView fx:id="deciByteTable">
+        <columns>
+            <TableColumn text="Decimal Representation" minWidth="150" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="decimalRepresentation"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Binary Representation" minWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="binaryRepresentation"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>
