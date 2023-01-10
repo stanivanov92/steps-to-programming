@@ -1,4 +1,4 @@
-package com.interactivedemos.interactivedemo1;
+package com.interactivedemos.interactivedemo_variables;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

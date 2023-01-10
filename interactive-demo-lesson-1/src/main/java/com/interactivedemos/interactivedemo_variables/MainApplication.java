@@ -1,4 +1,4 @@
-package com.interactivedemos.interactivedemo1;
+package com.interactivedemos.interactivedemo_variables;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,12 +10,13 @@ import java.io.IOException;
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        // Prevent text colour fringing
         System.setProperty("prism.text", "t2k");
         System.setProperty("prism.lcdtext", "true");
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-window.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 390, 240);
-        stage.setTitle("Interactive Demo 1");
+        stage.setTitle("Interactive Demo - Variables");
         stage.setScene(scene);
         stage.show();
     }
