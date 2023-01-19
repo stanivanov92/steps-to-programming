@@ -1,12 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.interactivedemos.interactivedemo_operators.MainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-    <Label text="Coming soon..." />
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.interactivedemos.interactivedemo_operators.gui.MainController">
+    <TabPane VBox.vgrow="ALWAYS">
+        <Tab text="Operators" closable="false">
+            <GridPane hgap="15" vgap="5">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                </padding>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="0" text="Variable 'A'" labelFor="$inputA"
+                       maxWidth="Infinity" alignment="CENTER"/>
+                <TextField GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="inputA" onKeyTyped="#calculate"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="2" fx:id="binaryA" maxWidth="Infinity"
+                       alignment="CENTER"/>
+                <Button GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="toggleButton" minWidth="27"
+                        onAction="#toggleOperator"/>
+                <Label GridPane.columnIndex="2" GridPane.rowIndex="0" text="Variable 'B'" labelFor="$inputB"
+                       maxWidth="Infinity" alignment="CENTER"/>
+                <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="inputB" onKeyTyped="#calculate"/>
+                <Label GridPane.columnIndex="2" GridPane.rowIndex="2" fx:id="binaryB" maxWidth="Infinity"
+                       alignment="CENTER"/>
+                <Label GridPane.columnIndex="3" GridPane.rowIndex="1" text="=" minWidth="9" maxWidth="Infinity"
+                       alignment="CENTER"/>
+                <Label GridPane.columnIndex="4" GridPane.rowIndex="0" text="Variable 'Answer'" maxWidth="Infinity"
+                       alignment="CENTER"/>
+                <Label GridPane.columnIndex="4" GridPane.rowIndex="1" fx:id="answerLabel" minWidth="70"/>
+                <Label GridPane.columnIndex="4" GridPane.rowIndex="2" fx:id="binaryAnswer" maxWidth="Infinity"
+                       alignment="CENTER"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="5" fx:id="errorLabel"
+                       visible="false" textFill="brown"/>
+            </GridPane>
+        </Tab>
+        <Tab text="Combined operators" closable="false">
+            <GridPane hgap="15" vgap="5">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                </padding>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="0" text="Variable 'A'" labelFor="$demo2InputA"
+                       maxWidth="Infinity" alignment="CENTER"/>
+                <TextField GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="demo2InputA" onKeyTyped="#calculate"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="2" fx:id="demo2BinaryA" maxWidth="Infinity"
+                       alignment="CENTER"/>
+                <Separator GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="3"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="4" text="Variable 'A'" maxWidth="Infinity"
+                       alignment="BASELINE_RIGHT"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="5" fx:id="demo2AnswerLabel" minWidth="70"
+                       maxWidth="Infinity" alignment="BASELINE_RIGHT"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="6" fx:id="demo2BinaryAnswer" maxWidth="Infinity"
+                       alignment="BASELINE_RIGHT"/>
+                <Button GridPane.columnIndex="1" GridPane.rowIndex="5" fx:id="demo2ToggleButton" minWidth="27"
+                        onAction="#toggleOperator"/>
+                <Label GridPane.columnIndex="2" GridPane.rowIndex="4" text="Variable 'B'" labelFor="$demo2InputB"
+                       maxWidth="Infinity" alignment="CENTER"/>
+                <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" fx:id="demo2InputB" onKeyTyped="#calculate"/>
+                <Label GridPane.columnIndex="2" GridPane.rowIndex="6" fx:id="demo2BinaryB" maxWidth="Infinity"
+                       alignment="CENTER"/>
+
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="7" GridPane.columnSpan="5" fx:id="demo2ErrorLabel"
+                       visible="false" textFill="brown"/>
+            </GridPane>
+        </Tab>
+    </TabPane>
+
 </VBox>

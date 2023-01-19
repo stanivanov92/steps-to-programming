@@ -14,10 +14,15 @@ public class MainApplication extends Application {
         System.setProperty("prism.text", "t2k");
         System.setProperty("prism.lcdtext", "true");
 
+        // Specify which FXML file to load.
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-window.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 390, 240);
+        // Set window size and scene.
+        Scene scene = new Scene(fxmlLoader.load(), 550, 240);
+        // Set window title.
         stage.setTitle("Interactive Demo - Operators");
+        // Set scene to display in window.
         stage.setScene(scene);
+        // Show window.
         stage.show();
     }
 
