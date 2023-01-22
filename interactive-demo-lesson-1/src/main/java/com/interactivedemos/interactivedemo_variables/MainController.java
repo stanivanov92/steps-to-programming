@@ -4,17 +4,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.SetChangeListener;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -36,25 +33,31 @@ public class MainController implements Initializable {
         comboBox.setOnAction(actionEvent -> {
         });
         setInitialTableSize(8);
-
     }
 
-    private void setInitialTableSize(int columns){
+    private void setInitialTableSize(int columns) {
         for(int i = 0; i < columns; i++){
-            final int k = i;
-            TableColumn<ObservableList<String>,String> tableColumn = new TableColumn(String.valueOf(i));
-            tableColumn.setCellValueFactory(
-                    (Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>)
-                            param -> new SimpleStringProperty(param.getValue().get(k).toString()));
-            deciByteTable.getColumns().add(tableColumn);
+            final int j = i;
+            TableColumn tableColumn = new TableColumn(String.valueOf((columns-1)-i));
+            tableColumn.setCellValueFactory((Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>) param -> {
+                try {
+                    var property = new SimpleStringProperty(param.getValue().get(j).toString());
+                    return property;
+                } catch (IndexOutOfBoundsException ioobe) {
+                    throw new RuntimeException("The row input value length does not match the number of table columns", ioobe);
+                }
+            });
+            deciByteTable.getColumns().addAll(tableColumn);
         }
-        addRow("00000000");
-
+        addRow("00000001");
     }
 
 
     private void addRow(String values ){
-        ObservableList<String> row = FXCollections.observableArrayList(values);
+        ObservableList<String> row = FXCollections.observableArrayList();
+        for (int i = 0; i < values.length(); i++) {
+            row.addAll(String.valueOf(values.charAt(i)));
+        }
         deciByteTable.getItems().add(row);
     }
 }
