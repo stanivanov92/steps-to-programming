@@ -98,6 +98,7 @@ public class MainController implements Initializable {
         demo2BinaryA.textProperty().bind(binaryA.textProperty());
         demo2BinaryB.textProperty().bind(binaryB.textProperty());
         demo2AnswerLabel.textProperty().bind(answerLabel.textProperty());
+        demo2BinaryAnswer.textProperty().bind(binaryAnswer.textProperty());
         demo2ErrorLabel.textProperty().bind(errorLabel.textProperty());
         // Link visibility state between the two error labels.
         demo2ErrorLabel.visibleProperty().bind(errorLabel.visibleProperty());
