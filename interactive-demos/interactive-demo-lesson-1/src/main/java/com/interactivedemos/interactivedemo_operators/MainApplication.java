@@ -13,7 +13,8 @@ public class MainApplication extends Application {
         // Prevent text colour fringing
         System.setProperty("prism.text", "t2k");
         System.setProperty("prism.lcdtext", "true");
-
+        int total = 3 * ((5 + 1) * 2 - 4);
+        System.out.println(total);
         // Specify which FXML file to load.
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-window.fxml"));
         // Set window size and scene.
