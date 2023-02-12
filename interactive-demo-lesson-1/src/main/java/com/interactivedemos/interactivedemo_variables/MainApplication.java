@@ -15,7 +15,7 @@ public class MainApplication extends Application {
         System.setProperty("prism.lcdtext", "true");
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-window.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 390, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 510, 350);
         stage.setTitle("Interactive Demo - Variables");
         stage.setScene(scene);
         stage.show();
